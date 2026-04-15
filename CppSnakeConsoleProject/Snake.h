@@ -3,6 +3,7 @@
 
 enum class SnakeWay
 {
+	Stop,
 	Left,
 	Right,
 	Up,
@@ -39,6 +40,8 @@ public:
 	Cell& Head();
 
 	Cell Move(SnakeWay way, bool grow = false);
+	size_t Size();
+	Cell At(int index);
 
 	bool Fault();
 };

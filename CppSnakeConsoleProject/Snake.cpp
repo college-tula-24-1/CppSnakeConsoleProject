@@ -72,6 +72,16 @@ Cell Snake::Move(SnakeWay way, bool grow)
 	return head;
 }
 
+size_t Snake::Size()
+{
+	return snake.size();
+}
+
+Cell Snake::At(int index)
+{
+	return snake[index];
+}
+
 bool Snake::Fault()
 {
 	if (head.Row() <= 0 || head.Row() >= height

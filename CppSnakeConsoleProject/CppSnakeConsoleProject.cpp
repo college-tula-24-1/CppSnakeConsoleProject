@@ -3,6 +3,6 @@
 
 int main()
 {
-	SnakeGame* game = new SnakeGame(5, 5, 30, 20);
+	SnakeGame* game = new SnakeGame(2, 5, 20, 10);
 	game->Play();
 }

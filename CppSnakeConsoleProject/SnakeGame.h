@@ -1,5 +1,6 @@
 #pragma once
 #include <conio.h>
+#include <ctime>
 
 #include "Console.h"
 #include "Snake.h"
@@ -27,6 +28,8 @@ class SnakeGame
 	int RandomRange(int low, int hi);
 	void CellShow(int row, int column, Color color);
 	void FieldShow();
+	void FoodShow();
+	void SnakeShow(bool visible = true);
 public:
 	SnakeGame(int rowStart, int columnStart, int width, int height);
 
