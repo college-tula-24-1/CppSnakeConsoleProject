@@ -1,32 +1,37 @@
 #pragma once
-#include <ctime>
+#include <conio.h>
 
-#include "View.h"
+#include "Console.h"
+#include "Snake.h"
+
 class SnakeGame
 {
-	Position position;
-	Size size;
+	int rowStart;
+	int columnStart;
 
-	std::vector<View*> snake;
-	View* snakeHead;
+	int width;
+	int height;
 
-	View* food;
+	Cell* food;
+	Snake* snake;
 
-	const int widthRate{ 2 };
+	const Color backFieldColor{ Color::Black };
+	const Color wallFieldColor{ Color::Magenta };
+	const Color snakeHeadColor{ Color::Green };
+	const Color snakeBodyColor{ Color::Blue };
+	const Color foodColor{ Color::Red };
+
 	const int cellSize{ 2 };
-	const Color colorWall{ Color::Magenta };
-	const Color colorHead{ Color::Green };
-	const Color colorSnake{ Color::Yellow };
-	const Color colorFood{ Color::Red };
+	const int widthRate{ 2 };
 
+	int RandomRange(int low, int hi);
+	void CellShow(int row, int column, Color color);
 	void FieldShow();
-	void SnakeShow(bool visible = true);
-	int RandRange(int low, int hi);
-	void FoodShow();
-
 public:
-	SnakeGame(Position position, Size size = { 40, 30 });
+	SnakeGame(int rowStart, int columnStart, int width, int height);
 
 	void Play();
+
+	~SnakeGame();
 };
 

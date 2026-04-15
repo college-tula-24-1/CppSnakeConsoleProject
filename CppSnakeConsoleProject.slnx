@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="CppSnakeConsoleProject/CppSnakeConsoleProject.vcxproj" />
+  <Project Path="CppSnakeConsoleProject/CppSnakeConsoleProject.vcxproj" Id="941a9aea-7cab-42b9-9b01-cce3e1f1ef67" />
 </Solution>

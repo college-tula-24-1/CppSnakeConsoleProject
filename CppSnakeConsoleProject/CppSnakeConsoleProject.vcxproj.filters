@@ -21,7 +21,7 @@
     <ClCompile Include="Console.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="View.cpp">
+    <ClCompile Include="Snake.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="SnakeGame.cpp">
@@ -32,7 +32,7 @@
     <ClInclude Include="Console.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="View.h">
+    <ClInclude Include="Snake.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="SnakeGame.h">

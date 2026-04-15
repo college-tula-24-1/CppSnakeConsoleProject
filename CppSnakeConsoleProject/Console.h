@@ -37,20 +37,20 @@ enum class Color
 
 class Console
 {
-	HANDLE inputConsole;
-	HANDLE outputConsole;
+	static HANDLE inputConsole;
+	static HANDLE outputConsole;
 
 public:
-	Console();
 
-	void CursorPosition(Position position);
-	void Write(std::string message);
-	void WritePosition(Position position, std::string message);
+	static void Background(Color color);
+	static void Foreground(Color color);
 
-	HANDLE OutputConsole();
+	static void CursorPosition(Position position);
+	static void Write(std::string message);
+	static void WritePosition(Position position, std::string message);
 
-	void CursorVisible(bool visible = true);
+	static void CursorVisible(bool visible = true);
 
-	std::vector<INPUT_RECORD> ReadEvents();
+	static std::vector<INPUT_RECORD> ReadEvents();
 };
 

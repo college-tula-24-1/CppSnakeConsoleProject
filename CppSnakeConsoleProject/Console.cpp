@@ -1,8 +1,29 @@
 #include "Console.h"
 
-Console::Console()
-	: inputConsole{ GetStdHandle(STD_INPUT_HANDLE) },
-	outputConsole{ GetStdHandle(STD_OUTPUT_HANDLE) }{}
+HANDLE Console::inputConsole = GetStdHandle(STD_INPUT_HANDLE);
+HANDLE Console::outputConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+void Console::Background(Color color)
+{
+	CONSOLE_SCREEN_BUFFER_INFO info;
+	GetConsoleScreenBufferInfo(outputConsole, &info);
+
+	WORD colorCurrent{ info.wAttributes };
+	WORD colorNew = (colorCurrent & 0b1111) | (unsigned char)color << 4;
+
+	SetConsoleTextAttribute(outputConsole, colorNew);
+}
+
+void Console::Foreground(Color color)
+{
+	CONSOLE_SCREEN_BUFFER_INFO info;
+	GetConsoleScreenBufferInfo(outputConsole, &info);
+
+	WORD colorCurrent{ info.wAttributes };
+	WORD colorNew = ((colorCurrent >> 4) << 4) | (unsigned char)color;
+
+	SetConsoleTextAttribute(outputConsole, colorNew);
+}
 
 void Console::CursorPosition(Position position)
 {
@@ -24,11 +45,6 @@ void Console::WritePosition(Position position, std::string message)
 {
 	CursorPosition(position);
 	Write(message);
-}
-
-HANDLE Console::OutputConsole()
-{
-	return outputConsole;
 }
 
 void Console::CursorVisible(bool visible)
